@@ -20,19 +20,50 @@ Node.js with the examples below. Use the command:
 
 `node problems/05-class-static-method.js`
 
-Example:
 
-const instance1 = new MMS('555-111-1111', '555-222-2222', 
+***********************************************************************/
+
+class MMS {
+  constructor(recipient, sender, text, mimeType) {
+    this.recipient = recipient;
+    this.sender = sender;
+    this.text = text;
+    this.mimeType = mimeType;
+  }
+  //instance method
+  //this type of instance method changes the property of the class object
+  changeRecipient(recipient){
+    this.recipient = recipient
+  }
+
+  //only class object can use this method
+  //instances can't access this method
+  //helper functions
+  //should never use these methods to change the property values
+  static getMessagesByMIMEType(messages, mimeType){
+    return messages.filter(el => {
+      if(el.mimeType === mimeType) return true
+    })
+  }
+}
+
+//Example:
+
+const instance1 = new MMS('555-111-1111', '555-222-2222',
   'This is a test message.', 'image/gif');
-const instance2 = new MMS('555-111-1111', '555-222-2222', 
+const instance2 = new MMS('555-111-1111', '555-222-2222',
   'This is a second test message.', 'image/gif');
-const instance3 = new MMS('555-111-1111', '555-222-2222', 
+const instance3 = new MMS('555-111-1111', '555-222-2222',
   'This is a third test message.', 'image/jpeg');
 
 const messages = [instance1, instance2, instance3];
-const filteredMessages = MMS.getMessagesByMIMEType(messages, 'image/gif');
+// const filteredMessages = MMS.getMessagesByMIMEType(messages, 'image/gif');
 
-console.log(filteredMessages);
+instance1.changeRecipient('Ananya')
+console.log(instance1)
+// console.log(filteredMessages);
+
+console.log(MMS.getMessagesByMIMEType(messages, 'image/gif'))
 
 // Should print...
 
@@ -51,16 +82,6 @@ console.log(filteredMessages);
 //   }
 // ]
 
-***********************************************************************/
-
-class MMS {
-  constructor(recipient, sender, text, mimeType) {
-    this.recipient = recipient;
-    this.sender = sender;
-    this.text = text;
-    this.mimeType = mimeType;
-  }
-}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {

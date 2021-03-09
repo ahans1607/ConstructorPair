@@ -21,9 +21,23 @@ Node.js with the examples below. Use the command:
 
 `node problems/04-class-instance-method.js`
 
-Examples:
+***********************************************************************/
 
-const message1 = new Email('sally@smith.com', 'john@smith.com', 
+class Email {
+  constructor(recipient, sender, subject, text){
+    this.recipient = recipient
+    this.sender = sender
+    this.subject = subject
+    this.text = text
+  }
+  getSubjectAndText(){
+    return `${this.subject}: ${this.text}`
+  }
+}
+
+//Examples:
+
+const message1 = new Email('sally@smith.com', 'john@smith.com',
   'Test Message One', 'This is a test message.');
 console.log(message1);
 console.log(message1.getSubjectAndText());
@@ -38,7 +52,7 @@ console.log(message1.getSubjectAndText());
 // }
 // Test Message One: This is a test message.
 
-const message2 = new Email('sally@smith.com', 'john@smith.com', 
+const message2 = new Email('sally@smith.com', 'john@smith.com',
   'Test Message Two', 'This is a test message.');
 console.log(message2);
 console.log(message2.getSubjectAndText());
@@ -52,10 +66,6 @@ console.log(message2.getSubjectAndText());
 //   text: 'This is a test message.'
 // }
 // Test Message Two: This is a test message.
-
-***********************************************************************/
-
-
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
