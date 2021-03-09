@@ -1,6 +1,4 @@
-
 /***********************************************************************
-
 Let's create a class hierarchy by updating an ES2015 class to inherit from
 another class!
 
@@ -16,12 +14,25 @@ that initialize the following properties:
 Be sure to call the parent class's constructor method passing in the expected
 arguments!
 
-In addition to Mocha, we recommend that you test your code manually using
-Node.js with the examples below. Use the command:
+***********************************************************************/
 
-`node problems/07-class-inheritance.js`
+class Message {
+  constructor(recipient, sender, text) {
+    this.recipient = recipient;
+    this.sender = sender;
+    this.text = text;
+  }
+}
 
-Examples:
+class Email extends Message {
+  constructor(recipient, sender, subject, text){
+    super(recipient, sender, text)
+    this.subject = subject; 
+  }
+}
+
+
+
 
 const message1 = new Email('sally@smith.com', 'john@smith.com', 
   'Test Message One', 'This is a test message.');
@@ -48,19 +59,6 @@ console.log(message2);
 //   text: 'This is a test message.',
 //   subject: 'Test Message Two'
 // }
-
-***********************************************************************/
-
-class Message {
-  constructor(recipient, sender, text) {
-    this.recipient = recipient;
-    this.sender = sender;
-    this.text = text;
-  }
-}
-
-class Email {}
-
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
   module.exports = {
