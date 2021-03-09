@@ -1,4 +1,3 @@
-
 /***********************************************************************
 
 Let's create instances of an ES2015 class!
@@ -22,8 +21,8 @@ class ServiceProvider {
   }
 }
 
-const verizon = null;
-const tmobile = null;
+const verizon = new ServiceProvider("Verizon");
+const tmobile = new ServiceProvider("T-Mobile");
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 try {
